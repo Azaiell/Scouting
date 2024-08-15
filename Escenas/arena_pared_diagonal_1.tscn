@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://062f3mixdcdc"]
+
+[ext_resource type="Script" path="res://Escenas/arena en si d1.gd" id="1_610ah"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2evoe"]
+size = Vector2(195, 184)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xybga"]
+size = Vector2(156, 171)
+
+[node name="arena pared diagonal 1" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="arena en si d1" type="StaticBody2D" parent="."]
+position = Vector2(617, 308)
+collision_layer = 2048
+collision_mask = 2048
+script = ExtResource("1_610ah")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arena en si d1"]
+position = Vector2(2.5, 12)
+shape = SubResource("RectangleShape2D_2evoe")
+
+[node name="activa d 1" type="Area2D" parent="."]
+position = Vector2(1403, 1360)
+collision_layer = 2048
+collision_mask = 2048
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="activa d 1"]
+position = Vector2(11, 34.5)
+shape = SubResource("RectangleShape2D_xybga")
+
+[connection signal="body_entered" from="activa d 1" to="arena en si d1" method="_on_activa_d_1_body_entered"]

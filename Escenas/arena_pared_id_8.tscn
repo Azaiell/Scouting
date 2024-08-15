@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp1qddcw861qp"]
+
+[ext_resource type="Script" path="res://Escenas/arena en si id 8.gd" id="1_hymra"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lc3cp"]
+size = Vector2(80, 248)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y00hj"]
+size = Vector2(157, 201)
+
+[node name="arena pared id 8" type="Node2D"]
+
+[node name="arena en si id 8" type="StaticBody2D" parent="."]
+position = Vector2(551, 470)
+collision_layer = 2048
+collision_mask = 2048
+script = ExtResource("1_hymra")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arena en si id 8"]
+position = Vector2(3, 19)
+shape = SubResource("RectangleShape2D_lc3cp")
+
+[node name="activa 8" type="Area2D" parent="."]
+position = Vector2(-2934, -880)
+collision_layer = 2048
+collision_mask = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="activa 8"]
+position = Vector2(3.5, 6.5)
+shape = SubResource("RectangleShape2D_y00hj")
+
+[connection signal="body_entered" from="activa 8" to="arena en si id 8" method="_on_activa_8_body_entered"]

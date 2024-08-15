@@ -1,0 +1,228 @@
+[gd_scene load_steps=16 format=3 uid="uid://drk1k2lc0k2eq"]
+
+[ext_resource type="Script" path="res://Scripts/CM.gd" id="1_het1c"]
+[ext_resource type="Script" path="res://Escenas/A1.gd" id="2_udvsj"]
+[ext_resource type="Script" path="res://Escenas/A2.gd" id="3_xi5kr"]
+[ext_resource type="Script" path="res://Escenas/A3.gd" id="4_ukq1n"]
+[ext_resource type="Script" path="res://Escenas/A4.gd" id="5_rmckt"]
+[ext_resource type="Script" path="res://Escenas/A5.gd" id="6_kxfvg"]
+[ext_resource type="Script" path="res://Escenas/A6.gd" id="7_fxo58"]
+[ext_resource type="Script" path="res://Escenas/A7.gd" id="8_xit48"]
+[ext_resource type="Script" path="res://Escenas/A8.gd" id="9_b6dc8"]
+[ext_resource type="Script" path="res://Escenas/A9.gd" id="10_xdamo"]
+[ext_resource type="Script" path="res://Escenas/A10.gd" id="11_2o3ge"]
+[ext_resource type="Script" path="res://Escenas/A11.gd" id="12_fir4o"]
+[ext_resource type="Script" path="res://Escenas/A12.gd" id="13_tjams"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i6imo"]
+radius = 45.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_no7a4"]
+radius = 329.0
+height = 872.0
+
+[node name="CM" type="Node2D"]
+position = Vector2(772, 494)
+script = ExtResource("1_het1c")
+metadata/_edit_group_ = true
+
+[node name="Cuerpo" type="StaticBody2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cuerpo"]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_i6imo")
+
+[node name="A1" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("2_udvsj")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="A1"]
+polygon = PackedVector2Array(29, -39, 20, -46, 0, -48, 0, -329, 103, -329, 189, -318)
+
+[node name="RA1" type="RayCast2D" parent="A1"]
+position = Vector2(104, -329)
+target_position = Vector2(-85, 286)
+
+[node name="A2" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("3_xi5kr")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="A2"]
+polygon = PackedVector2Array(46, -22, 368, -191, 293, -273, 189, -318, 29, -39, 41, -33)
+
+[node name="RA2" type="RayCast2D" parent="A2"]
+position = Vector2(293, -273)
+target_position = Vector2(-249, 237)
+
+[node name="A3" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("4_ukq1n")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="A3"]
+polygon = PackedVector2Array(434, 0, 410, -112, 368, -191, 46, -22, 51, -16, 52, 0)
+
+[node name="RA3" type="RayCast2D" parent="A3"]
+position = Vector2(410, -112)
+target_position = Vector2(-350, 94)
+
+[node name="A4" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("5_rmckt")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="A4"]
+polygon = PackedVector2Array(366, 195, 410, 114, 434, 0, 52, 0, 51, 16, 48, 23)
+
+[node name="RA4" type="RayCast2D" parent="A4"]
+position = Vector2(410, 114)
+target_position = Vector2(-350, -96)
+
+[node name="A5" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("6_kxfvg")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="A5"]
+polygon = PackedVector2Array(188, 318, 289, 274, 366, 195, 48, 23, 45, 32, 29, 41)
+
+[node name="RA5" type="RayCast2D" parent="A5"]
+position = Vector2(289, 274)
+target_position = Vector2(-242, -240)
+
+[node name="A6" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("7_fxo58")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="A6"]
+polygon = PackedVector2Array(0, 329, 103, 329, 188, 318, 29, 41, 20, 46, 0, 48)
+
+[node name="RA6" type="RayCast2D" parent="A6"]
+position = Vector2(104, 329)
+target_position = Vector2(-85, -286)
+
+[node name="A7" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("8_xit48")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="A7"]
+polygon = PackedVector2Array(-189, 318, -104, 329, 0, 329, 0, 48, -20, 46, -29, 41)
+
+[node name="RA7" type="RayCast2D" parent="A7"]
+position = Vector2(-104, 329)
+target_position = Vector2(85, -286)
+
+[node name="A8" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("9_b6dc8")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="A8"]
+polygon = PackedVector2Array(-365, 195, -287, 274, -189, 318, -29, 41, -40, 34, -47, 23)
+
+[node name="RA8" type="RayCast2D" parent="A8"]
+position = Vector2(-287, 274)
+target_position = Vector2(244, -238)
+
+[node name="A9" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("10_xdamo")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="A9"]
+position = Vector2(-16, -5)
+polygon = PackedVector2Array(-417, 5, -394, 119, -349, 200, -31, 28, -37, 20, -38, 5)
+
+[node name="RA9" type="RayCast2D" parent="A9"]
+position = Vector2(-410, 114)
+target_position = Vector2(351, -96)
+
+[node name="A10" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("11_2o3ge")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="A10"]
+polygon = PackedVector2Array(-366, -195, -410, -114, -433, 0, -54, 0, -53, -16, -47, -22)
+
+[node name="RA10" type="RayCast2D" parent="A10"]
+position = Vector2(-410, -114)
+target_position = Vector2(350, 96)
+
+[node name="A11" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("12_fir4o")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="A11"]
+polygon = PackedVector2Array(-189, -318, -287, -275, -366, -195, -47, -22, -41, -33, -30, -41)
+
+[node name="RA11" type="RayCast2D" parent="A11"]
+position = Vector2(-287, -275)
+target_position = Vector2(243, 239)
+
+[node name="A12" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("13_tjams")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="A12"]
+polygon = PackedVector2Array(-189, -318, -103, -329, 0, -329, 0, -48, -20, -47, -30, -41)
+
+[node name="RA12" type="RayCast2D" parent="A12"]
+position = Vector2(-104, -329)
+target_position = Vector2(85, 286)
+
+[node name="Salida" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Salida"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_no7a4")
+
+[connection signal="a1" from="." to="A1" method="_on_cm_a_1"]
+[connection signal="a10" from="." to="A10" method="_on_cm_a_10"]
+[connection signal="a11" from="." to="A11" method="_on_cm_a_11"]
+[connection signal="a12" from="." to="A12" method="_on_cm_a_12"]
+[connection signal="a2" from="." to="A2" method="_on_cm_a_2"]
+[connection signal="a3" from="." to="A3" method="_on_cm_a_3"]
+[connection signal="a4" from="." to="A4" method="_on_cm_a_4"]
+[connection signal="a5" from="." to="A5" method="_on_cm_a_5"]
+[connection signal="a6" from="." to="A6" method="_on_cm_a_6"]
+[connection signal="a7" from="." to="A7" method="_on_cm_a_7"]
+[connection signal="a8" from="." to="A8" method="_on_cm_a_8"]
+[connection signal="a9" from="." to="A9" method="_on_cm_a_9"]
+[connection signal="body_entered" from="A1" to="." method="_on_a_1_body_entered"]
+[connection signal="body_entered" from="A2" to="." method="_on_a_2_body_entered"]
+[connection signal="body_entered" from="A3" to="." method="_on_a_3_body_entered"]
+[connection signal="body_entered" from="A4" to="." method="_on_a_4_body_entered"]
+[connection signal="body_entered" from="A5" to="." method="_on_a_5_body_entered"]
+[connection signal="body_entered" from="A6" to="." method="_on_a_6_body_entered"]
+[connection signal="body_entered" from="A7" to="." method="_on_a_7_body_entered"]
+[connection signal="body_entered" from="A8" to="." method="_on_a_8_body_entered"]
+[connection signal="body_entered" from="A9" to="." method="_on_a_9_body_entered"]
+[connection signal="body_entered" from="A10" to="." method="_on_a_10_body_entered"]
+[connection signal="body_entered" from="A11" to="." method="_on_a_11_body_entered"]
+[connection signal="body_entered" from="A12" to="." method="_on_a_12_body_entered"]
+[connection signal="body_exited" from="Salida" to="." method="_on_salida_body_exited"]

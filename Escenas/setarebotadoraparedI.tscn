@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://rmynsh1ll3qh"]
+
+[ext_resource type="Script" path="res://Scripts/SRP.gd" id="1_ginkl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6oy1"]
+size = Vector2(20, 80)
+
+[node name="Seta_rebotadora_pared_I" type="Node2D"]
+position = Vector2(577, 657)
+script = ExtResource("1_ginkl")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-24, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_k6oy1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-7, -43, 27, -43, 27, 42, 15, 42)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(-30, -100)
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(-31, -107)
+target_position = Vector2(-60, -100)
+
+[node name="RayCast2D3" type="RayCast2D" parent="."]
+position = Vector2(-95, -208)
+target_position = Vector2(-85, -100)
+
+[node name="RayCast2D4" type="RayCast2D" parent="."]
+position = Vector2(-185, -307)
+target_position = Vector2(-20, 5)
+
+[node name="RayCast2D5" type="RayCast2D" parent="."]
+position = Vector2(-208, -300)
+target_position = Vector2(-35, 35)
+
+[node name="RayCast2D6" type="RayCast2D" parent="."]
+position = Vector2(-246, -263)
+target_position = Vector2(-25, 50)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

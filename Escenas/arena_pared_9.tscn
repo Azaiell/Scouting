@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://qd54ot5g7f4x"]
+
+[ext_resource type="Script" path="res://Escenas/arena en si 9.gd" id="1_h0xir"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mg1ho"]
+size = Vector2(248, 67)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgiho"]
+size = Vector2(157, 200)
+
+[node name="arena pared 9" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="arena en si 9" type="StaticBody2D" parent="."]
+position = Vector2(1, 17)
+collision_layer = 2048
+collision_mask = 2048
+script = ExtResource("1_h0xir")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arena en si 9"]
+position = Vector2(574, 416)
+shape = SubResource("RectangleShape2D_mg1ho")
+
+[node name="activa9" type="Area2D" parent="."]
+position = Vector2(-2300, -1341)
+collision_layer = 2048
+collision_mask = 2048
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="activa9"]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_lgiho")
+
+[connection signal="body_entered" from="activa9" to="arena en si 9" method="_on_activa_9_body_entered"]

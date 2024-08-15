@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqsaoxm05pysn"]
+
+[ext_resource type="Texture2D" uid="uid://clppbwgybxpwy" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="1_g7yx7"]
+[ext_resource type="Script" path="res://Escenas/luz.gd" id="1_uvwt5"]
+[ext_resource type="Script" path="res://Escenas/Apagado.gd" id="3_pjbuq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_as76r"]
+size = Vector2(1920, 1080)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7nw65"]
+
+[node name="Luz" type="Node2D"]
+position = Vector2(959, 545)
+script = ExtResource("1_uvwt5")
+
+[node name="Apagado" type="Area2D" parent="."]
+position = Vector2(-949, -535)
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("3_pjbuq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Apagado"]
+position = Vector2(950, 530)
+shape = SubResource("RectangleShape2D_as76r")
+
+[node name="Dale" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -959.0
+offset_top = -545.0
+offset_right = -919.0
+offset_bottom = -505.0
+scale = Vector2(47.9995, 27.0007)
+texture = SubResource("CanvasTexture_7nw65")
+metadata/_edit_use_anchors_ = true
+
+[node name="Luces" type="PointLight2D" parent="."]
+position = Vector2(-6, -45)
+texture = ExtResource("1_g7yx7")
+texture_scale = 1.4
+
+[connection signal="dale" from="." to="Apagado" method="_on_luz_dale"]
+[connection signal="body_entered" from="Apagado" to="." method="_on_apagado_body_entered"]

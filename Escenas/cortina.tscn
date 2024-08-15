@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://creqv7m7fmv63"]
+
+[ext_resource type="Script" path="res://Escenas/cortina.gd" id="1_a4a03"]
+
+[sub_resource type="Animation" id="Animation_trd2f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayerCortina/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8l7ry"]
+resource_name = "show"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayerCortina/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(0.683021, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_va7nk"]
+_data = {
+"RESET": SubResource("Animation_trd2f"),
+"show": SubResource("Animation_8l7ry")
+}
+
+[node name="Cortina" type="Control"]
+process_mode = 3
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a4a03")
+
+[node name="CanvasLayerCortina" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayerCortina"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -253.0
+offset_top = -208.0
+offset_right = -253.0
+offset_bottom = -208.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.32668, 1.3927)
+color = Color(0, 0, 0, 0)
+
+[node name="Anim" type="AnimationPlayer" parent="CanvasLayerCortina"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_va7nk")
+}

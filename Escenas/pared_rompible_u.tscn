@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://biool66ist051"]
+
+[ext_resource type="Script" path="res://Escenas/pared_rompible.gd" id="1_nb1ce"]
+[ext_resource type="Script" path="res://Escenas/Pared.gd" id="2_ba457"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfyug"]
+size = Vector2(117, 20)
+
+[node name="Pared rompible U" type="Node2D"]
+position = Vector2(547, 435)
+rotation = 3.14159
+script = ExtResource("1_nb1ce")
+
+[node name="Pared" type="StaticBody2D" parent="."]
+position = Vector2(266, 197)
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("2_ba457")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pared"]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_hfyug")
+
+[node name="Grieta" type="RayCast2D" parent="Pared"]
+position = Vector2(31, 0)
+
+[node name="Grieta2" type="RayCast2D" parent="Pared"]
+position = Vector2(-27, 0)
+
+[connection signal="rompe" from="." to="Pared" method="_on_pared_rompible_rompe"]

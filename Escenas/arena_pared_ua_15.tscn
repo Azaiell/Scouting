@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://c17850oj3sbxv"]
+
+[ext_resource type="Script" path="res://Escenas/arena en si 15.gd" id="1_sbghk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rs2lk"]
+size = Vector2(195, 186)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3223"]
+size = Vector2(156, 171)
+
+[node name="arena pared ua 15" type="Node2D"]
+position = Vector2(-2133, 108)
+metadata/_edit_group_ = true
+
+[node name="arena en si 15" type="StaticBody2D" parent="."]
+position = Vector2(3233, 312)
+collision_layer = 2048
+collision_mask = 2048
+script = ExtResource("1_sbghk")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arena en si 15"]
+position = Vector2(7.5, 16)
+shape = SubResource("RectangleShape2D_rs2lk")
+
+[node name="activa 15" type="Area2D" parent="."]
+position = Vector2(3547, 1290)
+collision_layer = 2048
+collision_mask = 2048
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="activa 15"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_s3223")
+
+[connection signal="body_entered" from="activa 15" to="arena en si 15" method="_on_activa_15_body_entered"]

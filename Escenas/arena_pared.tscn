@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://gqpywbvbtkxb"]
+
+[ext_resource type="Script" path="res://Escenas/Arena en si.gd" id="1_kvahe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0n0o"]
+size = Vector2(328, 188)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5iv0"]
+size = Vector2(157.5, 201)
+
+[node name="Arena Pared" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="Arena en si" type="StaticBody2D" parent="."]
+position = Vector2(-223, 266)
+collision_layer = 2048
+collision_mask = 2048
+script = ExtResource("1_kvahe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena en si"]
+position = Vector2(-6, 343)
+shape = SubResource("RectangleShape2D_t0n0o")
+
+[node name="Activa" type="Area2D" parent="."]
+position = Vector2(-1160, -170)
+collision_layer = 2048
+collision_mask = 2048
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Activa"]
+position = Vector2(211.75, -68.5)
+shape = SubResource("RectangleShape2D_n5iv0")
+
+[connection signal="body_entered" from="Activa" to="Arena en si" method="_on_activa_body_entered"]

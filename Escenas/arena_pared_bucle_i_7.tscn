@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://4tloh0swlsqa"]
+
+[ext_resource type="Script" path="res://Scripts/arena en si b i 7.gd" id="1_j70rb"]
+[ext_resource type="Script" path="res://Scripts/arena en si b i 8.gd" id="2_nt2w8"]
+[ext_resource type="Script" path="res://Scripts/arena en si b i 9.gd" id="3_c68b0"]
+[ext_resource type="Script" path="res://Scripts/arena en si b i 10.gd" id="4_8j4q1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qm0cd"]
+size = Vector2(164, 211)
+
+[node name="arena pared bucle i 7" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="arena en si b i 7" type="StaticBody2D" parent="."]
+position = Vector2(821, -242)
+collision_layer = 2048
+collision_mask = 2048
+script = ExtResource("1_j70rb")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="arena en si b i 7"]
+polygon = PackedVector2Array(1078, 254, 779, 253, 779, 401, 931, 535, 1078, 405)
+
+[node name="arena en si b i 8" type="StaticBody2D" parent="."]
+position = Vector2(278, -4)
+collision_layer = 2048
+collision_mask = 2048
+script = ExtResource("2_nt2w8")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="arena en si b i 8"]
+polygon = PackedVector2Array(770, 443, 910, 547, 777, 639, 578, 639, 576, 443)
+
+[node name="arena en si b i 9" type="StaticBody2D" parent="."]
+position = Vector2(-203, -5)
+collision_layer = 2048
+collision_mask = 2048
+script = ExtResource("3_c68b0")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="arena en si b i 9"]
+polygon = PackedVector2Array(1092, 454, 1271, 455, 1260, 632, 1090, 629, 952, 548)
+
+[node name="arena en si b i 10" type="StaticBody2D" parent="."]
+position = Vector2(-812, 239)
+collision_layer = 2048
+collision_mask = 2048
+script = ExtResource("4_8j4q1")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="arena en si b i 10"]
+polygon = PackedVector2Array(932, 558, 1092, 679, 1092, 818, 825, 821, 821, 675)
+
+[node name="activa b i 7" type="Area2D" parent="."]
+position = Vector2(-3842, 2448)
+collision_layer = 2048
+collision_mask = 2048
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="activa b i 7"]
+position = Vector2(10, 6.5)
+shape = SubResource("RectangleShape2D_qm0cd")
+
+[connection signal="body_entered" from="activa b i 7" to="arena en si b i 7" method="_on_activa_b_i_7_body_entered"]
+[connection signal="body_entered" from="activa b i 7" to="arena en si b i 8" method="_on_activa_b_i_7_body_entered"]
+[connection signal="body_entered" from="activa b i 7" to="arena en si b i 9" method="_on_activa_b_i_7_body_entered"]
+[connection signal="body_entered" from="activa b i 7" to="arena en si b i 10" method="_on_activa_b_i_7_body_entered"]

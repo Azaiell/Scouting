@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxf6pr8vwsdu4"]
+
+[ext_resource type="Script" path="res://Scripts/viento.gd" id="1_g8yvt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctm7w"]
+size = Vector2(1432, 157)
+
+[node name="Viento_Diagonal_DU" type="Node2D"]
+
+[node name="Viento" type="Node2D" parent="."]
+rotation = 3.92699
+script = ExtResource("1_g8yvt")
+
+[node name="Zona de viento" type="Area2D" parent="Viento"]
+position = Vector2(20, 25)
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Viento/Zona de viento"]
+position = Vector2(626, 225.5)
+shape = SubResource("RectangleShape2D_ctm7w")
+
+[node name="Direccion" type="RayCast2D" parent="Viento/Zona de viento"]
+position = Vector2(-15, -16)
+target_position = Vector2(-100, -100)
+
+[node name="Freno" type="RayCast2D" parent="Viento/Zona de viento"]
+target_position = Vector2(100, 100)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Viento"]
+position = Vector2(0, 244)
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Viento/StaticBody2D"]
+polygon = PackedVector2Array(16, -52, 31, -11, 29, 14, 17, 62, -1, 86, -50, 94, -76, 85, -101, 62, -118, 35, -124, 2, -117, -31, -96, -59, -74, -75, -47, -84, 0, -72)
+
+[connection signal="body_entered" from="Viento/Zona de viento" to="Viento" method="_on_zona_de_viento_body_entered"]
+[connection signal="body_exited" from="Viento/Zona de viento" to="Viento" method="_on_zona_de_viento_body_exited"]

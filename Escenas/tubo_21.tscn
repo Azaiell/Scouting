@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwuhft0tlehhs"]
+
+[ext_resource type="Script" path="res://Scripts/Tubo.gd" id="1_bim3j"]
+[ext_resource type="Script" path="res://Scripts/E1.gd" id="2_v07qq"]
+[ext_resource type="Script" path="res://Scripts/E2.gd" id="3_7muhl"]
+[ext_resource type="Script" path="res://Escenas/Limite1.gd" id="4_qclpr"]
+[ext_resource type="Script" path="res://Escenas/Limite2.gd" id="5_pxkgo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_al0gx"]
+size = Vector2(113, 103)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivmol"]
+size = Vector2(112, 103)
+
+[node name="Tubo 21" type="Node2D"]
+position = Vector2(97, 100)
+script = ExtResource("1_bim3j")
+
+[node name="E1" type="Area2D" parent="."]
+position = Vector2(-673, -25394)
+collision_layer = 64
+collision_mask = 64
+script = ExtResource("2_v07qq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="E1"]
+shape = SubResource("RectangleShape2D_al0gx")
+
+[node name="E2" type="Area2D" parent="."]
+position = Vector2(2021, -22782)
+collision_layer = 64
+collision_mask = 64
+script = ExtResource("3_7muhl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="E2"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ivmol")
+
+[node name="Limite1" type="StaticBody2D" parent="."]
+position = Vector2(-890, -25583)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("4_qclpr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Limite1"]
+scale = Vector2(1.00993, 0.983296)
+polygon = PackedVector2Array(157.437, 138.311, 157.436, 246.111, 273.286, 246.111, 272.295, 137.293, 157.437, 138.311, 110.899, 85.427, 328.735, 86.4439, 325.764, 303.062, 115.85, 302.045, 110.899, 85.4258)
+
+[node name="Limite2" type="StaticBody2D" parent="."]
+position = Vector2(1803, -22969)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("5_pxkgo")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Limite2"]
+position = Vector2(1, -1)
+polygon = PackedVector2Array(111, 84, 159, 136, 274, 136, 275, 242, 159, 242, 159, 136, 111, 84, 104, 293, 329, 299, 331, 85)
+
+[connection signal="body_entered" from="E1" to="." method="_on_e_1_body_entered"]
+[connection signal="body_entered" from="E1" to="E2" method="_on_e_1_body_entered"]
+[connection signal="body_entered" from="E1" to="Limite1" method="_on_e_1_body_entered"]
+[connection signal="body_entered" from="E1" to="Limite2" method="_on_e_1_body_entered"]
+[connection signal="body_exited" from="E1" to="." method="_on_e_1_body_exited"]
+[connection signal="body_entered" from="E2" to="." method="_on_e_2_body_entered"]
+[connection signal="body_entered" from="E2" to="E1" method="_on_e_2_body_entered"]
+[connection signal="body_entered" from="E2" to="Limite1" method="_on_e_2_body_entered"]
+[connection signal="body_entered" from="E2" to="Limite2" method="_on_e_2_body_entered"]
+[connection signal="body_exited" from="E2" to="." method="_on_e_2_body_exited"]

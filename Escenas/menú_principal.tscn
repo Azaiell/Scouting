@@ -1,0 +1,185 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0gbjikwv0fir"]
+
+[ext_resource type="Texture2D" uid="uid://bwd86xrs1nm8i" path="res://Texturas/Titulo.jpeg" id="1_07pxb"]
+[ext_resource type="Script" path="res://Escenas/menú_principal.gd" id="1_wkhra"]
+[ext_resource type="Texture2D" uid="uid://lse2piwd2k3u" path="res://icon.svg" id="2_b00qi"]
+[ext_resource type="Script" path="res://Escenas/Confirmar.gd" id="4_kfoqf"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_swtwg"]
+
+[node name="Menú principal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wkhra")
+
+[node name="Fondo1" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -21.0
+offset_right = -19.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.03012, 1.03769)
+texture = SubResource("CanvasTexture_swtwg")
+
+[node name="Titulo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -510.0
+offset_top = 41.0
+offset_right = 1538.0
+offset_bottom = 1061.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_07pxb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 1500
+alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Version" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Versión 1.0"
+
+[node name="Copyright" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Copyright"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Empresa" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Un juego hecho por AteamOrganization"
+horizontal_alignment = 2
+
+[node name="Pagina web" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "página web"
+horizontal_alignment = 2
+
+[node name="Icono" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1536.0
+offset_top = 1028.0
+offset_right = 1664.0
+offset_bottom = 1156.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_b00qi")
+
+[node name="botones" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = 73.0
+offset_right = 17.0
+offset_bottom = 279.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.72517, 1.74574)
+
+[node name="Introduccion" type="Button" parent="botones"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Ver introducción"
+flat = true
+
+[node name="Continuar" type="Button" parent="botones"]
+layout_mode = 2
+text = "Continuar"
+flat = true
+
+[node name="Nuevo Juego" type="Button" parent="botones"]
+layout_mode = 2
+text = "Nuevo Juego"
+flat = true
+
+[node name="Archivo" type="Button" parent="botones"]
+layout_mode = 2
+text = "Archivo"
+flat = true
+
+[node name="Opciones" type="Button" parent="botones"]
+layout_mode = 2
+text = "Opciones"
+flat = true
+
+[node name="Salir" type="Button" parent="botones"]
+layout_mode = 2
+text = "Salir"
+flat = true
+
+[node name="Confirmar" type="PanelContainer" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = 151.0
+offset_right = 236.0
+offset_bottom = 235.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_kfoqf")
+
+[node name="Confirmar" type="VBoxContainer" parent="Confirmar"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Confirmar/Confirmar"]
+layout_mode = 2
+text = "¿Estás segur@? 
+Si empiezas un nuevo juego se perderán los datos guardados"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Confirmar/Confirmar"]
+layout_mode = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="Si" type="Button" parent="Confirmar/Confirmar/HBoxContainer"]
+layout_mode = 2
+text = "Sí"
+flat = true
+
+[node name="No" type="Button" parent="Confirmar/Confirmar/HBoxContainer"]
+layout_mode = 2
+text = "No"
+flat = true
+
+[connection signal="pressed" from="botones/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="botones/Nuevo Juego" to="." method="_on_nuevo_juego_pressed"]
+[connection signal="pressed" from="botones/Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="Confirmar/Confirmar/HBoxContainer/Si" to="." method="_on_si_pressed"]
+[connection signal="pressed" from="Confirmar/Confirmar/HBoxContainer/No" to="." method="_on_no_pressed"]

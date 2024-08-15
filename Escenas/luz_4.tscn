@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://t8qr0d0u2uka"]
+
+[ext_resource type="Script" path="res://Escenas/luz_4.gd" id="1_odqhw"]
+[ext_resource type="Script" path="res://Escenas/Apagado4.gd" id="2_56ego"]
+[ext_resource type="Texture2D" uid="uid://clppbwgybxpwy" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="3_tloxp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbcso"]
+size = Vector2(1920, 1080)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_up0b8"]
+
+[node name="Luz4" type="Node2D"]
+script = ExtResource("1_odqhw")
+
+[node name="Apagado4" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("2_56ego")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Apagado4"]
+position = Vector2(960, 540)
+shape = SubResource("RectangleShape2D_rbcso")
+
+[node name="Dale4" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(47.9998, 26.9999)
+texture = SubResource("CanvasTexture_up0b8")
+
+[node name="Luces41" type="PointLight2D" parent="."]
+position = Vector2(1306, 149)
+texture = ExtResource("3_tloxp")
+texture_scale = 0.5
+
+[node name="Luces42" type="PointLight2D" parent="."]
+position = Vector2(1589, 808)
+texture = ExtResource("3_tloxp")
+texture_scale = 0.5
+
+[node name="Luces43" type="PointLight2D" parent="."]
+position = Vector2(612, 565)
+texture = ExtResource("3_tloxp")
+
+[connection signal="dale4" from="." to="Apagado4" method="_on_luz_4_dale_4"]
+[connection signal="body_entered" from="Apagado4" to="." method="_on_apagado_4_body_entered"]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://c00j2ycp5wfo"]
+
+[ext_resource type="Script" path="res://Escenas/arena en si b i 1.gd" id="1_jvbmv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5s4x0"]
+size = Vector2(75, 171)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jk8p1"]
+size = Vector2(155, 197)
+
+[node name="arena pared bucle i 1" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="arena en si b i 1" type="StaticBody2D" parent="."]
+position = Vector2(950, 611)
+collision_layer = 2048
+collision_mask = 2048
+script = ExtResource("1_jvbmv")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arena en si b i 1"]
+position = Vector2(27.5, 75.5)
+shape = SubResource("RectangleShape2D_5s4x0")
+
+[node name="activa b i 1" type="Area2D" parent="."]
+position = Vector2(-1793, 1363)
+collision_layer = 2048
+collision_mask = 2048
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="activa b i 1"]
+position = Vector2(-3.5, -7.5)
+shape = SubResource("RectangleShape2D_jk8p1")
+
+[connection signal="body_entered" from="activa b i 1" to="arena en si b i 1" method="_on_activa_b_i_1_body_entered"]

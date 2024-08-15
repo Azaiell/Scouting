@@ -1,0 +1,122 @@
+[gd_scene load_steps=3 format=3 uid="uid://v1daev5yqe2d"]
+
+[ext_resource type="Script" path="res://Escenas/pinchos.gd" id="1_0a1ss"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3o2m"]
+radius = 15.8333
+height = 41.6667
+
+[node name="Pinchos" type="Node2D"]
+position = Vector2(163, 156)
+scale = Vector2(2, 2)
+script = ExtResource("1_0a1ss")
+
+[node name="Cuerpo" type="StaticBody2D" parent="."]
+position = Vector2(0, -6)
+scale = Vector2(0.6, 0.6)
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cuerpo"]
+position = Vector2(0, 6.66667)
+shape = SubResource("CapsuleShape2D_t3o2m")
+
+[node name="P1" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="P1"]
+position = Vector2(-23, 26)
+polygon = PackedVector2Array(8, -18, 15, -8, 17, -11, 14, -15, 12, -19)
+
+[node name="Pi1" type="RayCast2D" parent="P1"]
+position = Vector2(0, 5)
+target_position = Vector2(-20, 15)
+
+[node name="P2" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="P2"]
+position = Vector2(0, 38)
+polygon = PackedVector2Array(-7, -19, 7, -19, 5, -23, 0, -22, -5, -23)
+
+[node name="Pi2" type="RayCast2D" parent="P2"]
+position = Vector2(0, 5)
+target_position = Vector2(0, 25)
+
+[node name="P3" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="P3"]
+position = Vector2(23, 26)
+polygon = PackedVector2Array(-15, -8, -8, -18, -12, -19, -14, -15, -17, -11)
+
+[node name="Pi3" type="RayCast2D" parent="P3"]
+position = Vector2(0, 5)
+target_position = Vector2(20, 15)
+
+[node name="P4" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="P4"]
+position = Vector2(-30, 0)
+polygon = PackedVector2Array(15, -7, 15, 7, 19, 6, 19, -6)
+
+[node name="Pi4" type="RayCast2D" parent="P4"]
+target_position = Vector2(-25, 0)
+
+[node name="P5" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="P5"]
+position = Vector2(-1, 0)
+polygon = PackedVector2Array(-5, -15, -7, -18, -14, -8, -10, -7, -8, -11)
+
+[node name="Pi5" type="RayCast2D" parent="P5"]
+position = Vector2(0, -4)
+target_position = Vector2(-20, -15)
+
+[node name="P6" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="P6"]
+polygon = PackedVector2Array(5, -15, 7, -19, -7, -19, -5, -15, 0, -16)
+
+[node name="Pi6" type="RayCast2D" parent="P6"]
+position = Vector2(0, -4)
+target_position = Vector2(0, -25)
+
+[node name="P7" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="P7"]
+polygon = PackedVector2Array(11, -7, 15, -8, 8, -18, 6, -15, 9, -11)
+
+[node name="Pi7" type="RayCast2D" parent="P7"]
+position = Vector2(0, -4)
+target_position = Vector2(20, -15)
+
+[node name="P8" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="P8"]
+polygon = PackedVector2Array(11, -6, 15, -7, 15, 7, 11, 6)
+
+[node name="Pi8" type="RayCast2D" parent="P8"]
+target_position = Vector2(25, 0)
+
+[connection signal="body_entered" from="P1" to="." method="_on_p_1_body_entered"]
+[connection signal="body_entered" from="P2" to="." method="_on_p_2_body_entered"]
+[connection signal="body_entered" from="P3" to="." method="_on_p_3_body_entered"]
+[connection signal="body_entered" from="P4" to="." method="_on_p_4_body_entered"]
+[connection signal="body_entered" from="P5" to="." method="_on_p_5_body_entered"]
+[connection signal="body_entered" from="P6" to="." method="_on_p_6_body_entered"]
+[connection signal="body_entered" from="P7" to="." method="_on_p_7_body_entered"]
+[connection signal="body_entered" from="P8" to="." method="_on_p_8_body_entered"]

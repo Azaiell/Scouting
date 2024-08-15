@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://3dwucy4wyssn"]
+
+[ext_resource type="Script" path="res://Escenas/arena en si 14.gd" id="1_8i7k8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7uueg"]
+size = Vector2(106, 284)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jl2y"]
+size = Vector2(156, 171)
+
+[node name="arena pared ua 12" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="arena en si 14" type="StaticBody2D" parent="."]
+position = Vector2(1674, 132)
+collision_layer = 2048
+collision_mask = 2048
+script = ExtResource("1_8i7k8")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arena en si 14"]
+position = Vector2(14, 9)
+shape = SubResource("RectangleShape2D_7uueg")
+
+[node name="activa14" type="Area2D" parent="."]
+position = Vector2(3553, 1278)
+collision_layer = 2048
+collision_mask = 2048
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="activa14"]
+position = Vector2(-6, 8.5)
+shape = SubResource("RectangleShape2D_1jl2y")
+
+[connection signal="body_entered" from="activa14" to="arena en si 14" method="_on_activa_14_body_entered"]

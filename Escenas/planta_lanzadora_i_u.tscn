@@ -1,0 +1,185 @@
+[gd_scene load_steps=12 format=3 uid="uid://cquuxhj1q474r"]
+
+[ext_resource type="Script" path="res://Escenas/Planta_en_si.gd" id="1_rlxkq"]
+[ext_resource type="Script" path="res://Escenas/Caja.gd" id="2_6h8yj"]
+[ext_resource type="Script" path="res://Escenas/Agarre3.gd" id="2_ffysv"]
+[ext_resource type="Script" path="res://Escenas/Agarre2.gd" id="3_ye66a"]
+[ext_resource type="Script" path="res://Escenas/Agarre1.gd" id="4_vqfcv"]
+[ext_resource type="Script" path="res://Escenas/Agarre4.gd" id="6_q8an8"]
+[ext_resource type="Script" path="res://Escenas/Agarre5.gd" id="7_svl1g"]
+[ext_resource type="Script" path="res://Escenas/Agarre6.gd" id="8_ahwf6"]
+[ext_resource type="Script" path="res://Escenas/Agarre7.gd" id="9_72ajx"]
+[ext_resource type="Script" path="res://Escenas/Agarre8.gd" id="10_xvflb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_erowr"]
+radius = 109.0
+height = 303.0
+
+[node name="Planta_Lanzadora_I_U" type="Node2D"]
+position = Vector2(291, 173)
+
+[node name="Planta_en_si" type="Node2D" parent="."]
+script = ExtResource("1_rlxkq")
+
+[node name="Planta" type="Area2D" parent="Planta_en_si"]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planta_en_si/Planta"]
+position = Vector2(0.5, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_erowr")
+
+[node name="D1" type="RayCast2D" parent="Planta_en_si/Planta"]
+target_position = Vector2(-100, 0)
+
+[node name="D2" type="RayCast2D" parent="Planta_en_si/Planta"]
+target_position = Vector2(0, -100)
+
+[node name="Agarre3" type="Area2D" parent="Planta_en_si"]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("2_ffysv")
+metadata/_edit_group_ = true
+
+[node name="AG3" type="CollisionPolygon2D" parent="Planta_en_si/Agarre3"]
+polygon = PackedVector2Array(109, -2, 98, 19, 81, 19, 55, 0, 79, -20, 95, -22)
+
+[node name="G3" type="RayCast2D" parent="Planta_en_si/Agarre3"]
+position = Vector2(108, -2)
+target_position = Vector2(-108, 2)
+
+[node name="Agarre2" type="Area2D" parent="Planta_en_si"]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("3_ye66a")
+metadata/_edit_group_ = true
+
+[node name="AG2" type="CollisionPolygon2D" parent="Planta_en_si/Agarre2"]
+polygon = PackedVector2Array(-112, 1, -99, -17, -77, -17, -54, 0, -77, 14, -100, 14, -112, 1)
+
+[node name="G2" type="RayCast2D" parent="Planta_en_si/Agarre2"]
+position = Vector2(-111, 1)
+target_position = Vector2(111, -1)
+
+[node name="Agarre1" type="Area2D" parent="Planta_en_si"]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("4_vqfcv")
+metadata/_edit_group_ = true
+
+[node name="AG1" type="CollisionPolygon2D" parent="Planta_en_si/Agarre1"]
+polygon = PackedVector2Array(-2, -86, -15, -80, -15, -58, -1, -48, 18, -61, 18, -35, 18, -79)
+
+[node name="G1" type="RayCast2D" parent="Planta_en_si/Agarre1"]
+position = Vector2(-1, -85)
+target_position = Vector2(1, 85)
+
+[node name="Caja" type="StaticBody2D" parent="Planta_en_si"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_6h8yj")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Planta_en_si/Caja"]
+polygon = PackedVector2Array(0, -86, 53, -64, 74, -45, 113, -2, 76, 51, 58, 66, 1, 91, -31, 73, -63, 58, -112, -1, -72, -55, -1, -86, -1, -189, -148, -140, -269, 4, -159, 145, 0, 192, 134, 159, 162, 138, 276, -1, 191, -108, 137, -165, -1, -188, -1, -86)
+
+[node name="Agarre4" type="Area2D" parent="Planta_en_si"]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("6_q8an8")
+metadata/_edit_group_ = true
+
+[node name="AG4" type="CollisionPolygon2D" parent="Planta_en_si/Agarre4"]
+polygon = PackedVector2Array(1, 90, -18, 80, -18, 65, 0, 50, 19, 63, 19, 84)
+
+[node name="G4" type="RayCast2D" parent="Planta_en_si/Agarre4"]
+position = Vector2(0, 88)
+target_position = Vector2(0, -88)
+
+[node name="Agarre5" type="Area2D" parent="Planta_en_si"]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("7_svl1g")
+metadata/_edit_group_ = true
+
+[node name="AG5" type="CollisionPolygon2D" parent="Planta_en_si/Agarre5"]
+polygon = PackedVector2Array(-59, 28, -33, 31, -35, 57, -44, 67, -62, 58, -78, 39)
+
+[node name="G5" type="RayCast2D" parent="Planta_en_si/Agarre5"]
+position = Vector2(-61, 58)
+target_position = Vector2(61, -58)
+
+[node name="Agarre6" type="Area2D" parent="Planta_en_si"]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("8_ahwf6")
+metadata/_edit_group_ = true
+
+[node name="AG6" type="CollisionPolygon2D" parent="Planta_en_si/Agarre6"]
+polygon = PackedVector2Array(34, 42, 49, 28, 78, 51, 60, 65)
+
+[node name="G6" type="RayCast2D" parent="Planta_en_si/Agarre6"]
+position = Vector2(66, 60)
+target_position = Vector2(-66, -60)
+
+[node name="Agarre7" type="Area2D" parent="Planta_en_si"]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("9_72ajx")
+metadata/_edit_group_ = true
+
+[node name="AG7" type="CollisionPolygon2D" parent="Planta_en_si/Agarre7"]
+polygon = PackedVector2Array(31, -42, 48, -25, 75, -43, 54, -64)
+
+[node name="G7" type="RayCast2D" parent="Planta_en_si/Agarre7"]
+position = Vector2(63, -51)
+target_position = Vector2(-63, 51)
+
+[node name="Agarre8" type="Area2D" parent="Planta_en_si"]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("10_xvflb")
+metadata/_edit_group_ = true
+
+[node name="AG8" type="CollisionPolygon2D" parent="Planta_en_si/Agarre8"]
+polygon = PackedVector2Array(-38, -50, -50, -64, -73, -53, -80, -43, -64, -32, -38, -32)
+
+[node name="G8" type="RayCast2D" parent="Planta_en_si/Agarre8"]
+position = Vector2(-68, -53)
+target_position = Vector2(68, 53)
+
+[connection signal="parad" from="Planta_en_si" to="Planta_en_si/Agarre3" method="_on_planta_en_si_parad"]
+[connection signal="parad" from="Planta_en_si" to="Planta_en_si/Agarre2" method="_on_planta_en_si_parad"]
+[connection signal="parad" from="Planta_en_si" to="Planta_en_si/Agarre1" method="_on_planta_en_si_parad"]
+[connection signal="parad" from="Planta_en_si" to="Planta_en_si/Agarre4" method="_on_planta_en_si_parad"]
+[connection signal="parad" from="Planta_en_si" to="Planta_en_si/Agarre5" method="_on_planta_en_si_parad"]
+[connection signal="parad" from="Planta_en_si" to="Planta_en_si/Agarre6" method="_on_planta_en_si_parad"]
+[connection signal="parad" from="Planta_en_si" to="Planta_en_si/Agarre7" method="_on_planta_en_si_parad"]
+[connection signal="parad" from="Planta_en_si" to="Planta_en_si/Agarre8" method="_on_planta_en_si_parad"]
+[connection signal="seguid" from="Planta_en_si" to="Planta_en_si/Agarre3" method="_on_planta_en_si_seguid"]
+[connection signal="seguid" from="Planta_en_si" to="Planta_en_si/Agarre2" method="_on_planta_en_si_seguid"]
+[connection signal="seguid" from="Planta_en_si" to="Planta_en_si/Agarre1" method="_on_planta_en_si_seguid"]
+[connection signal="seguid" from="Planta_en_si" to="Planta_en_si/Agarre4" method="_on_planta_en_si_seguid"]
+[connection signal="seguid" from="Planta_en_si" to="Planta_en_si/Agarre5" method="_on_planta_en_si_seguid"]
+[connection signal="seguid" from="Planta_en_si" to="Planta_en_si/Agarre6" method="_on_planta_en_si_seguid"]
+[connection signal="seguid" from="Planta_en_si" to="Planta_en_si/Agarre7" method="_on_planta_en_si_seguid"]
+[connection signal="seguid" from="Planta_en_si" to="Planta_en_si/Agarre8" method="_on_planta_en_si_seguid"]
+[connection signal="body_entered" from="Planta_en_si/Planta" to="Planta_en_si" method="_on_planta_body_entered"]
+[connection signal="body_exited" from="Planta_en_si/Planta" to="Planta_en_si" method="_on_planta_body_exited"]
+[connection signal="body_entered" from="Planta_en_si/Agarre3" to="Planta_en_si" method="_on_agarre_3_body_entered"]
+[connection signal="body_entered" from="Planta_en_si/Agarre3" to="Planta_en_si/Caja" method="_on_agarre_3_body_entered"]
+[connection signal="body_entered" from="Planta_en_si/Agarre2" to="Planta_en_si" method="_on_agarre_2_body_entered"]
+[connection signal="body_entered" from="Planta_en_si/Agarre2" to="Planta_en_si/Caja" method="_on_agarre_2_body_entered"]
+[connection signal="body_entered" from="Planta_en_si/Agarre1" to="Planta_en_si" method="_on_agarre_1_body_entered"]
+[connection signal="body_entered" from="Planta_en_si/Agarre1" to="Planta_en_si/Caja" method="_on_agarre_1_body_entered"]
+[connection signal="body_entered" from="Planta_en_si/Agarre4" to="Planta_en_si" method="_on_agarre_4_body_entered"]
+[connection signal="body_entered" from="Planta_en_si/Agarre4" to="Planta_en_si/Caja" method="_on_agarre_4_body_entered"]
+[connection signal="body_entered" from="Planta_en_si/Agarre5" to="Planta_en_si" method="_on_agarre_5_body_entered"]
+[connection signal="body_entered" from="Planta_en_si/Agarre5" to="Planta_en_si/Caja" method="_on_agarre_5_body_entered"]
+[connection signal="body_entered" from="Planta_en_si/Agarre6" to="Planta_en_si" method="_on_agarre_6_body_entered"]
+[connection signal="body_entered" from="Planta_en_si/Agarre6" to="Planta_en_si/Caja" method="_on_agarre_6_body_entered"]
+[connection signal="body_entered" from="Planta_en_si/Agarre7" to="Planta_en_si" method="_on_agarre_7_body_entered"]
+[connection signal="body_entered" from="Planta_en_si/Agarre7" to="Planta_en_si/Caja" method="_on_agarre_7_body_entered"]
+[connection signal="body_entered" from="Planta_en_si/Agarre8" to="Planta_en_si" method="_on_agarre_8_body_entered"]
+[connection signal="body_entered" from="Planta_en_si/Agarre8" to="Planta_en_si/Caja" method="_on_agarre_8_body_entered"]

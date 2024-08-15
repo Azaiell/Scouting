@@ -1,0 +1,98 @@
+[gd_scene load_steps=12 format=3 uid="uid://c8lliwdux6wml"]
+
+[ext_resource type="Script" path="res://Escenas/arena en si b i 11.gd" id="1_bxog3"]
+[ext_resource type="Script" path="res://Escenas/arena en si b i 12.gd" id="2_au5y3"]
+[ext_resource type="Script" path="res://Escenas/arena en si b i 13.gd" id="3_vif3w"]
+[ext_resource type="Script" path="res://Escenas/arena en si b i 14.gd" id="4_ffhix"]
+[ext_resource type="Script" path="res://Escenas/arena en si b d 1.gd" id="5_4e0p3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p83e0"]
+size = Vector2(152, 191)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0g8p3"]
+size = Vector2(133, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1jk1"]
+size = Vector2(133, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rrpri"]
+size = Vector2(133, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nncud"]
+size = Vector2(133, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tn2hc"]
+size = Vector2(237, 157)
+
+[node name="arena pared bucle i 11" type="Node2D"]
+
+[node name="activa 11" type="Area2D" parent="."]
+position = Vector2(3471, 2375)
+collision_layer = 2048
+collision_mask = 2048
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="activa 11"]
+position = Vector2(8, 1.5)
+shape = SubResource("RectangleShape2D_p83e0")
+
+[node name="arena en si b i 11" type="StaticBody2D" parent="."]
+position = Vector2(1486, 924)
+collision_layer = 2048
+collision_mask = 2048
+script = ExtResource("1_bxog3")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arena en si b i 11"]
+position = Vector2(56.5, 54.5)
+shape = SubResource("RectangleShape2D_0g8p3")
+
+[node name="arena en si b i 12" type="StaticBody2D" parent="."]
+position = Vector2(1509, 83)
+collision_layer = 2048
+collision_mask = 2048
+script = ExtResource("2_au5y3")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arena en si b i 12"]
+position = Vector2(2.5, 10.5)
+shape = SubResource("RectangleShape2D_v1jk1")
+
+[node name="arena en si b i 13" type="StaticBody2D" parent="."]
+position = Vector2(635, 85)
+collision_layer = 2048
+collision_mask = 2048
+script = ExtResource("3_vif3w")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arena en si b i 13"]
+position = Vector2(5.5, 8.5)
+shape = SubResource("RectangleShape2D_rrpri")
+
+[node name="arena en si b i 14" type="StaticBody2D" parent="."]
+position = Vector2(644, 998)
+collision_layer = 2048
+collision_mask = 2048
+script = ExtResource("4_ffhix")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arena en si b i 14"]
+position = Vector2(-9.5, 10.5)
+shape = SubResource("RectangleShape2D_nncud")
+
+[node name="arena en si b d 1" type="StaticBody2D" parent="."]
+position = Vector2(797, 407)
+collision_layer = 2048
+collision_mask = 2048
+script = ExtResource("5_4e0p3")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arena en si b d 1"]
+position = Vector2(82.5, 62.5)
+shape = SubResource("RectangleShape2D_tn2hc")
+
+[connection signal="body_entered" from="activa 11" to="arena en si b i 11" method="_on_activa_11_body_entered"]
+[connection signal="body_entered" from="activa 11" to="arena en si b i 12" method="_on_activa_11_body_entered"]
+[connection signal="body_entered" from="activa 11" to="arena en si b i 13" method="_on_activa_11_body_entered"]
+[connection signal="body_entered" from="activa 11" to="arena en si b i 14" method="_on_activa_11_body_entered"]
+[connection signal="body_entered" from="activa 11" to="arena en si b d 1" method="_on_activa_11_body_entered"]

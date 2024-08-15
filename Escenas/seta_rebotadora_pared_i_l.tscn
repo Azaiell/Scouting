@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://buh6f8kr1engf"]
+
+[ext_resource type="Script" path="res://Scripts/seta_rebotadora_pared_D_L.gd" id="1_n6tqw"]
+
+[node name="seta_rebotadora_pared_i_l" type="Node2D"]
+position = Vector2(186, 174)
+script = ExtResource("1_n6tqw")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(2, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+scale = Vector2(2.19455, 2.147)
+polygon = PackedVector2Array(2, -10, -10, 10, -10, -10)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-3, 0)
+scale = Vector2(2.18594, 2.19954)
+polygon = PackedVector2Array(5, 10, -7, 10, 5, -10)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(-185, -100)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
